@@ -1,9 +1,11 @@
-import Nav from "./nav";
+import Footer from "./Footer";
+import Header from "./Header";
 
-const Layout = ({ children, socials, seo }) => (
+const Layout = ({ children, socials, seo, pageTitle }) => (
   <>
-    <Nav socials={socials} />
-    {children}
+    <Header socials={socials} pageTitle={pageTitle} />
+    <main>{children}</main>
+    <Footer />
   </>
 );
 

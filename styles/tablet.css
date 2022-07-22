@@ -1,10 +1,13 @@
-@media (max-width: 1100px) {
+@media (min-width: 768px) and (max-width: 1100px) {
   body {
     padding: 30px 40px;
   }
 
   main {
-    padding-left: 9vw;
-    padding-right: 0;
+    padding: 0 0 0 9vw;
+  }
+
+  h2 {
+    font-size: 88px;
   }
 }

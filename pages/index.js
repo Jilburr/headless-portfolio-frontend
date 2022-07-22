@@ -1,8 +1,8 @@
 import Experiences from "../components/Experiences";
 import Hero from "../components/Hero";
-import Layout from "../components/layout";
+import Layout from "../components/Layout";
 import Projects from "../components/Projects";
-import Seo from "../components/seo";
+import Seo from "../components/Seo";
 import SkillGroups from "../components/SkillGroups";
 import { fetchAPI } from "../lib/api";
 
@@ -16,13 +16,11 @@ const Home = ({
 }) => {
   return (
     <Layout socials={socials}>
-      <main>
-        <Seo seo={homepage.attributes.seo} />
-        <Hero />
-        <Experiences experiences={experiences} />
-        <Projects projects={projects} />
-        <SkillGroups skillgroups={skillgroups} skills={skills} />
-      </main>
+      <Seo seo={homepage.attributes.seo} />
+      <Hero />
+      <Experiences experiences={experiences} />
+      <Projects projects={projects} />
+      <SkillGroups skillgroups={skillgroups} skills={skills} />
     </Layout>
   );
 };

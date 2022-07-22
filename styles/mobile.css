@@ -1,10 +1,10 @@
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   body {
     padding: 10px 20px;
   }
 
   main {
-    padding: 0;
+    padding: 0px;
   }
 
   h1 {
@@ -21,6 +21,12 @@
 
   h4 {
     font-size: 32px;
+  }
+
+  .page_title::before {
+    margin: 0 5px;
+    content: "\a |";
+    white-space: pre;
   }
 
   section {

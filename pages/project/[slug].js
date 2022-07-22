@@ -1,81 +1,39 @@
 import Moment from "react-moment";
 import ReactMarkdown from "react-markdown";
-
-import Seo from "../../components/seo";
-import Layout from "../../components/layout";
-
+import Seo from "../../components/Seo";
+import Layout from "../../components/Layout";
+import Image from "../../components/Image";
 import { fetchAPI } from "../../lib/api";
-import { getStrapiMedia } from "../../lib/media";
 
-const Article = ({ article, categories }) => {
-  const imageUrl = getStrapiMedia(article.attributes.image);
-
+const Project = ({ project, socials }) => {
   const seo = {
-    metaTitle: article.attributes.title,
-    metaDescription: article.attributes.description,
-    shareImage: article.attributes.image,
-    article: true,
+    metaTitle: project.attributes.title,
+    metaSummery: project.attributes.summery,
+    shareImage: project.attributes.image,
+    project: true,
   };
 
   return (
-    <Layout categories={categories.data}>
+    <Layout socials={socials} pageTitle={project.attributes.title}>
       <Seo seo={seo} />
-      <div
-        id="banner"
-        className="uk-height-medium uk-flex uk-flex-center uk-flex-middle uk-background-cover uk-light uk-padding uk-margin"
-        data-src={imageUrl}
-        data-srcset={imageUrl}
-        data-uk-img
-      >
-        <h1>{article.attributes.title}</h1>
-      </div>
-      <div className="uk-section">
-        <div className="uk-container uk-container-small">
-          <ReactMarkdown children={article.attributes.content} />
-          <hr className="uk-divider-small" />
-          <div className="uk-grid-small uk-flex-left" data-uk-grid="true">
-            <div>
-              {article.attributes.author.data.attributes.picture && (
-                <img
-                  src={getStrapiMedia(
-                    article.attributes.author.data.attributes.picture
-                  )}
-                  alt={
-                    article.attributes.author.data.attributes.picture.data
-                      .attributes.alternativeText
-                  }
-                  style={{
-                    position: "static",
-                    borderRadius: "20%",
-                    height: 60,
-                  }}
-                />
-              )}
-            </div>
-            <div className="uk-width-expand">
-              <p className="uk-margin-remove-bottom">
-                By {article.attributes.author.data.attributes.name}
-              </p>
-              <p className="uk-text-meta uk-margin-remove-top">
-                <Moment format="MMM Do YYYY">
-                  {article.attributes.published_at}
-                </Moment>
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
+      <section className="project">
+        <h2>{project.attributes.title}</h2>
+        <Image image={project.attributes.image} />
+        <ReactMarkdown className="project__content">
+          {project.attributes.description}
+        </ReactMarkdown>
+      </section>
     </Layout>
   );
 };
 
 export async function getStaticPaths() {
-  const articlesRes = await fetchAPI("/articles", { fields: ["slug"] });
+  const projectsRes = await fetchAPI("/projects", { fields: ["slug"] });
 
   return {
-    paths: articlesRes.data.map((article) => ({
+    paths: projectsRes.data.map((project) => ({
       params: {
-        slug: article.attributes.slug,
+        slug: project.attributes.slug,
       },
     })),
     fallback: false,
@@ -83,18 +41,20 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const articlesRes = await fetchAPI("/articles", {
-    filters: {
-      slug: params.slug,
-    },
-    populate: ["image", "category", "author.picture"],
-  });
-  const categoriesRes = await fetchAPI("/categories");
+  const [projectsRes, socialsRes] = await Promise.all([
+    fetchAPI("/projects", {
+      filters: {
+        slug: params.slug,
+      },
+      populate: ["*", "image"],
+    }),
+    fetchAPI("/socials", { populate: "*" }),
+  ]);
 
   return {
-    props: { article: articlesRes.data[0], categories: categoriesRes },
+    props: { project: projectsRes.data[0], socials: socialsRes.data },
     revalidate: 1,
   };
 }
 
-export default Article;
+export default Project;

@@ -3,6 +3,7 @@ import Head from "next/head";
 import "../styles/globals.css";
 import "../styles/mobile.css";
 import "../styles/tablet.css";
+import "../styles/project.css";
 import { createContext } from "react";
 import { fetchAPI } from "../lib/api";
 import { getStrapiMedia } from "../lib/media";
@@ -44,8 +45,12 @@ MyApp.getInitialProps = async (ctx) => {
       },
     },
   });
+
   // Pass the data to our page via props
-  return { ...appProps, pageProps: { global: globalRes.data } };
+  return {
+    ...appProps,
+    pageProps: { global: globalRes.data },
+  };
 };
 
 export default MyApp;
