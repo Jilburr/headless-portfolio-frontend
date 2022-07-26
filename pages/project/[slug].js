@@ -1,9 +1,9 @@
-import Moment from "react-moment";
 import ReactMarkdown from "react-markdown";
 import Seo from "../../components/Seo";
 import Layout from "../../components/Layout";
 import Image from "../../components/Image";
 import { fetchAPI } from "../../lib/api";
+import Solutions from "../../components/Solutions";
 
 const Project = ({ project, socials }) => {
   const seo = {
@@ -18,10 +18,12 @@ const Project = ({ project, socials }) => {
       <Seo seo={seo} />
       <section className="project">
         <h2>{project.attributes.title}</h2>
+        {/* eslint-disable-next-line jsx-a11y/alt-text */}
         <Image image={project.attributes.image} />
         <ReactMarkdown className="project__content">
           {project.attributes.description}
         </ReactMarkdown>
+        <Solutions solutions={project.attributes.solutions.data} />
       </section>
     </Layout>
   );
@@ -46,7 +48,7 @@ export async function getStaticProps({ params }) {
       filters: {
         slug: params.slug,
       },
-      populate: ["*", "image"],
+      populate: ["image", "solutions.image"],
     }),
     fetchAPI("/socials", { populate: "*" }),
   ]);

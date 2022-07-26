@@ -17,5 +17,3 @@ const SkillGroups = ({ skillgroups, skills }) => {
 };
 
 export default SkillGroups;
-
-// if(skill.attributes.skillgroups.data.attributes.name === skillgroups.attributes.name)

@@ -3,14 +3,18 @@
   src: url("../asset/Neue/NeueHaasDisplayRoman.ttf");
 }
 
+@font-face {
+  font-family: NeueHaasDisplayBold;
+  src: url("../asset/Neue/NeueHaasDisplayBold.ttf");
+}
+
 body {
   background-color: #e7520c;
   color: #fff;
-  padding: 60px 80px;
+  padding: 15px 45px;
 }
 
 h1,
-h2,
 h3,
 h4 {
   font-family: Neuehaasdisplayroman;
@@ -21,6 +25,7 @@ h1 {
 }
 
 h2 {
+  font-family: NeueHaasDisplayBold;
   font-size: 104px;
 }
 
@@ -89,8 +94,7 @@ header h1 a {
 }
 
 .hero span {
-  font-family: Neuehaasdisplayroman;
-  font-weight: 600;
+  font-family: NeueHaasDisplayBold;
 }
 
 hr {
@@ -113,7 +117,6 @@ article span {
 }
 
 article p {
-  font-size: 20px;
   line-height: 1.7;
 }
 
@@ -196,6 +199,24 @@ article p {
   align-items: center;
   font-style: italic;
   margin-bottom: 30px;
+}
+
+.solutions {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border: 1px solid white;
+  margin-top: 40px;
+}
+
+.solutions span {
+  width: 100px !important;
+  height: 100px !important;
+  margin-right: 25px !important;
+}
+
+.solutions svg {
+  margin-right: 25px;
 }
 
 footer {

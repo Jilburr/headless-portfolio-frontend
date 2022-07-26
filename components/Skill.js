@@ -5,7 +5,7 @@ const Skill = ({ skill }) => {
       <div>
         <div className="bar_bg">
           <div
-            style={{ width: skill.attributes.percentage + "%;" }}
+            style={{ width: skill.attributes.percentage + "%" }}
             className="bar_progress"
           ></div>
         </div>
