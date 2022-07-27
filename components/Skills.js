@@ -5,7 +5,7 @@ const Skills = ({ skills, skillgroupId }) => {
     <div className="parent">
       {skills.map((skill) => {
         if (skill.attributes.skillgroup.data.id === skillgroupId) {
-          return <Skill skill={skill} />;
+          return <Skill key={skill.id} skill={skill} />;
         }
       })}
     </div>

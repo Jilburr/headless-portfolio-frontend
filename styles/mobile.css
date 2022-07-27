@@ -58,3 +58,14 @@
     visibility: hidden;
   }
 }
+
+@media (max-width: 540px) {
+  .solutions {
+    flex-direction: column;
+  }
+
+  .solutions svg {
+    transform: rotate(90deg);
+    margin: 0;
+  }
+}

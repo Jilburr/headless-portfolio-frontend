@@ -1,3 +1,23 @@
+.image-container {
+  box-sizing: content-box;
+}
+
+.image-container > span {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
 .project .project__content {
   margin-top: 50px;
+}
+
+.solutions {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border: 1px solid white;
+  margin-top: 40px;
+}
+
+.solutions svg {
+  margin-right: 25px;
 }

@@ -8,15 +8,18 @@ const Solutions = ({ solutions }) => {
         if (i + 1 !== solutions.length) {
           return (
             <>
-              <Image
-                layout="responsive"
-                width={100}
-                height={100}
-                objectFit="contain"
-                src={getStrapiMedia(solution.attributes.image)}
-                alt={solution.attributes.alternativeText || ""}
-              />
+              <div key={solution.id}>
+                <Image
+                  layout="responsive"
+                  width={100}
+                  height={100}
+                  objectFit="contain"
+                  src={getStrapiMedia(solution.attributes.image)}
+                  alt={solution.attributes.alternativeText || ""}
+                />
+              </div>
               <svg
+                key={solution.id + "arrow"}
                 width="24"
                 height="24"
                 xmlns="http://www.w3.org/2000/svg"
@@ -29,7 +32,7 @@ const Solutions = ({ solutions }) => {
           );
         } else {
           return (
-            <>
+            <div key={solution.id}>
               <Image
                 layout="responsive"
                 width={100}
@@ -38,7 +41,7 @@ const Solutions = ({ solutions }) => {
                 src={getStrapiMedia(solution.attributes.image)}
                 alt={solution.attributes.alternativeText || ""}
               />
-            </>
+            </div>
           );
         }
       })}

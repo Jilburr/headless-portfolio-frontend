@@ -201,21 +201,9 @@ article p {
   margin-bottom: 30px;
 }
 
-.solutions {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  border: 1px solid white;
-  margin-top: 40px;
-}
-
-.solutions span {
-  width: 100px !important;
-  height: 100px !important;
-  margin-right: 25px !important;
-}
-
-.solutions svg {
+.solutions div {
+  width: 100px;
+  height: 100px;
   margin-right: 25px;
 }
 

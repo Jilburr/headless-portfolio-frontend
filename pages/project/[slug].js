@@ -1,9 +1,10 @@
 import ReactMarkdown from "react-markdown";
 import Seo from "../../components/Seo";
 import Layout from "../../components/Layout";
-import Image from "../../components/Image";
+import Image from "next/image";
 import { fetchAPI } from "../../lib/api";
 import Solutions from "../../components/Solutions";
+import { getStrapiMedia } from "../../lib/media";
 
 const Project = ({ project, socials }) => {
   const seo = {
@@ -18,8 +19,16 @@ const Project = ({ project, socials }) => {
       <Seo seo={seo} />
       <section className="project">
         <h2>{project.attributes.title}</h2>
-        {/* eslint-disable-next-line jsx-a11y/alt-text */}
-        <Image image={project.attributes.image} />
+        <div className="image-container">
+          <Image
+            layout="responsive"
+            width={80}
+            height={40}
+            objectFit="fill"
+            src={getStrapiMedia(project.attributes.image)}
+            alt={project.attributes.alternativeText || "picture"}
+          />
+        </div>
         <ReactMarkdown className="project__content">
           {project.attributes.description}
         </ReactMarkdown>
