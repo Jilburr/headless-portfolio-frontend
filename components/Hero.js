@@ -1,9 +1,9 @@
 import Typing from "./Typing.js";
 
-const Hero = () => {
+const Hero = ({ content }) => {
   return (
     <section className="hero">
-      <Typing />
+      <Typing content={content} />
     </section>
   );
 };

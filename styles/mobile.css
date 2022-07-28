@@ -33,14 +33,13 @@
     margin-bottom: 60px;
   }
 
-  .flex {
-    flex-direction: column;
-    justify-content: none;
-    align-items: flex-start;
+  article {
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: none;
+    grid-column-gap: 0;
   }
 
   hr {
-    width: 100%;
     margin-right: 0;
     margin-bottom: 25px;
   }

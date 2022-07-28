@@ -1,7 +1,10 @@
 import { useEffect, useRef } from "react";
 import Typed from "typed.js";
 
-export default function Typing() {
+export default function Typing({ content }) {
+  const heroText = content.attributes.content;
+  const splittedHeroText = heroText.split(",");
+
   const el = useRef(null);
 
   useEffect(() => {
@@ -10,10 +13,7 @@ export default function Typing() {
       typeSpeed: 20,
       startDelay: 500,
       backDelay: 1200,
-      strings: [
-        "Hi there!",
-        "Front-End Developer and professional photographer living in Amsterdam. Currently making websites at Greymen &amp; Co.",
-      ],
+      strings: splittedHeroText,
     });
 
     // Destroying

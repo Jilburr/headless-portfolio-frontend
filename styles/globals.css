@@ -87,19 +87,12 @@ header h1 a {
   margin: 0 20px;
 }
 
-.flex {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
 .hero span {
   font-family: NeueHaasDisplayBold;
 }
 
 hr {
-  width: 200px;
-  margin-right: 30px;
+  width: 100%;
 }
 
 section {
@@ -108,10 +101,13 @@ section {
 
 article {
   margin-bottom: 20px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr) 8fr;
+  grid-column-gap: 20px;
+  align-items: center;
 }
 
 article span {
-  margin-right: 30px;
   text-transform: uppercase;
   font-weight: 700;
 }

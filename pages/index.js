@@ -13,11 +13,12 @@ const Home = ({
   socials,
   homepage,
   experiences,
+  heroText,
 }) => {
   return (
     <Layout socials={socials}>
       <Seo seo={homepage.attributes.seo} />
-      <Hero />
+      <Hero content={heroText} />
       <Experiences experiences={experiences} />
       <Projects projects={projects} />
       <SkillGroups skillgroups={skillgroups} skills={skills} />
@@ -34,6 +35,7 @@ export async function getStaticProps() {
     projectsRes,
     skillgroupsRes,
     skillsRes,
+    heroTextRes,
   ] = await Promise.all([
     fetchAPI("/homepage", {
       populate: {
@@ -46,6 +48,7 @@ export async function getStaticProps() {
     fetchAPI("/projects", { populate: "*" }),
     fetchAPI("/skillgroups", { populate: "*" }),
     fetchAPI("/skills", { populate: "*" }),
+    fetchAPI("/hero-text", { populate: "*" }),
   ]);
 
   return {
@@ -56,6 +59,7 @@ export async function getStaticProps() {
       projects: projectsRes.data,
       skillgroups: skillgroupsRes.data,
       skills: skillsRes.data,
+      heroText: heroTextRes.data,
     },
     revalidate: 1,
   };
