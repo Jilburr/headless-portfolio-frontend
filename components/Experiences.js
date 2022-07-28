@@ -3,7 +3,7 @@ const Experiences = ({ experiences }) => {
     <section className="info">
       {experiences.map((experiences) => {
         return (
-          <article key={experiences.id} className="flex">
+          <article key={experiences.id}>
             <hr />
             <span>{experiences.attributes.date}</span>
             <p>{experiences.attributes.text}</p>
