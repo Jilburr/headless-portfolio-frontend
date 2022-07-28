@@ -107,9 +107,16 @@ article {
   align-items: center;
 }
 
+@media (min-width: 1800px) {
+  article {
+    grid-template-columns: repeat(2, 1fr) 15fr;
+  }
+}
+
 article span {
   text-transform: uppercase;
   font-weight: 700;
+  font-size: 20px;
 }
 
 article p {
