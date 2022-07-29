@@ -1,3 +1,5 @@
+import ReactMarkdown from "react-markdown";
+
 const Experiences = ({ experiences }) => {
   return (
     <section className="info">
@@ -6,7 +8,7 @@ const Experiences = ({ experiences }) => {
           <article key={experiences.id}>
             <hr />
             <span>{experiences.attributes.date}</span>
-            <p>{experiences.attributes.text}</p>
+            <ReactMarkdown>{experiences.attributes.content}</ReactMarkdown>
           </article>
         );
       })}
