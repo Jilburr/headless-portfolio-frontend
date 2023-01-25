@@ -5,6 +5,7 @@ import Image from "next/image";
 import { fetchAPI } from "../../lib/api";
 import Solutions from "../../components/Solutions";
 import { getStrapiMedia } from "../../lib/media";
+import { ArrowSquareOut, GithubLogo } from "phosphor-react";
 
 const Project = ({ project, socials }) => {
   const seo = {
@@ -18,7 +19,11 @@ const Project = ({ project, socials }) => {
     <Layout socials={socials} pageTitle={project.attributes.title}>
       <Seo seo={seo} />
       <section className="project">
-        <h2>{project.attributes.title}</h2>
+        <div className="project__header">
+          <h2>{project.attributes.title}</h2>
+          {project.attributes.WebsiteLink ? (<a href={project.attributes.WebsiteLink}><ArrowSquareOut size={32} weight="light" /></a>) : null}
+          {project.attributes.RepositoryLink ? (<a href={project.attributes.RepositoryLink}><GithubLogo size={32} weight="light" /></a>) : null}
+        </div>
         <div className="image-container">
           <Image
             layout="responsive"

@@ -1,11 +1,11 @@
 @font-face {
   font-family: Neuehaasdisplayroman;
-  src: url("../asset/Neue/NeueHaasDisplayRoman.ttf");
+  src: url("../asset/fonts/NeueHaasDisplayRoman.ttf");
 }
 
 @font-face {
   font-family: NeueHaasDisplayBold;
-  src: url("../asset/Neue/NeueHaasDisplayBold.ttf");
+  src: url("../asset/fonts/NeueHaasDisplayBold.ttf");
 }
 
 body {
@@ -63,6 +63,7 @@ nav a {
 }
 
 main {
+  max-width: 1360px;
   padding: 0 20px 0 20vw;
 }
 

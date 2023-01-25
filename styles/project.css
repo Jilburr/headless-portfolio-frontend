@@ -1,13 +1,22 @@
+.project__header {
+  display: flex;
+  align-items: baseline;
+}
+
+.project__header  h2{
+  margin-right: 20px;
+}
+
+.project .project__content {
+  margin-top: 50px;
+}
+
 .image-container {
   box-sizing: content-box;
 }
 
 .image-container > span {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-
-.project .project__content {
-  margin-top: 50px;
 }
 
 .solutions {
