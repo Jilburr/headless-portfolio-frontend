@@ -29,7 +29,7 @@ const Project = ({ project, socials }) => {
             layout="responsive"
             width={80}
             height={40}
-            objectFit="fill"
+            objectFit="cover"
             src={getStrapiMedia(project.attributes.image)}
             alt={project.attributes.alternativeText || "picture"}
           />
