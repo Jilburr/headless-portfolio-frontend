@@ -21,8 +21,8 @@ const Project = ({ project, socials }) => {
       <section className="project">
         <div className="project__header">
           <h2>{project.attributes.title}</h2>
-          {project.attributes.WebsiteLink ? (<a href={project.attributes.WebsiteLink}><ArrowSquareOut size={32} weight="light" /></a>) : null}
-          {project.attributes.RepositoryLink ? (<a href={project.attributes.RepositoryLink}><GithubLogo size={32} weight="light" /></a>) : null}
+          {project.attributes.WebsiteLink ? (<a target="blank_" href={project.attributes.WebsiteLink}><ArrowSquareOut size={32} weight="light" /></a>) : null}
+          {project.attributes.RepositoryLink ? (<a target="blank_" href={project.attributes.RepositoryLink}><GithubLogo size={32} weight="light" /></a>) : null}
         </div>
         <div className="image-container">
           <Image
