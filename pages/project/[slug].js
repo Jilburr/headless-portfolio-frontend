@@ -30,6 +30,7 @@ const Project = ({ project, socials }) => {
             width={80}
             height={40}
             objectFit="cover"
+            objectPosition={'top'}
             src={getStrapiMedia(project.attributes.image)}
             alt={project.attributes.alternativeText || "picture"}
           />
