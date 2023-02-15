@@ -182,7 +182,7 @@ article p {
 }
 
 .bar_bg {
-  width: 300px;
+  width: 100%;
   height: 15px;
   background-color: #e7510c;
   border-radius: 10px;
