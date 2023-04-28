@@ -3,7 +3,7 @@ import { getStrapiMedia } from "../lib/media";
 
 const Solutions = ({ solutions }) => {
   return (
-    <div className="solutions">
+    <div className="project__solutions">
       {solutions.map((solution, i, solutions) => {
         if (i + 1 !== solutions.length) {
           return (

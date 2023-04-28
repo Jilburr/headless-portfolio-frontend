@@ -1,9 +1,9 @@
 import App from "next/app";
 import Head from "next/head";
 import "../styles/globals.css";
-import "../styles/mobile.css";
-import "../styles/tablet.css";
+import "../styles/info.css";
 import "../styles/project.css";
+import "../styles/skills.css";
 import { createContext } from "react";
 import { fetchAPI } from "../lib/api";
 import { getStrapiMedia } from "../lib/media";

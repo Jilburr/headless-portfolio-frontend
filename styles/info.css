@@ -1,0 +1,36 @@
+article {
+    margin-bottom: 20px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr) 8fr;
+    grid-column-gap: 20px;
+    align-items: center;
+}
+
+article span {
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 20px;
+}
+
+article p {
+    line-height: 1.7;
+}
+
+@media (min-width: 1800px) {
+    article {
+        grid-template-columns: repeat(2, 1fr) 15fr;
+    }
+}
+
+@media (max-width: 767px) {
+    article {
+        grid-template-rows: repeat(2, 1fr);
+        grid-template-columns: none;
+        grid-column-gap: 0;
+    }
+
+    hr {
+        margin-right: 0;
+        margin-bottom: 25px;
+    }
+}

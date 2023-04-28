@@ -1,9 +1,28 @@
+.projects div {
+  position: relative;
+}
+
+.projects span {
+  position: absolute;
+  top: 10%;
+}
+
+.projects h3 {
+  margin-left: 10vw;
+}
+
+.project__solutions div {
+  width: 100px;
+  height: 100px;
+  margin-right: 25px;
+}
+
 .project__header {
   display: flex;
   align-items: baseline;
 }
 
-.project__header  h2{
+.project__header h2 {
   margin-right: 20px;
 }
 
@@ -11,15 +30,15 @@
   margin-top: 50px;
 }
 
-.image-container {
+.project__image-container {
   box-sizing: content-box;
 }
 
-.image-container > span {
+.project__image-container>span {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.solutions {
+.project__solutions {
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -27,6 +46,17 @@
   margin-top: 40px;
 }
 
-.solutions svg {
+.project__solutions svg {
   margin-right: 25px;
+}
+
+@media (max-width: 540px) {
+  .project__solutions {
+    flex-direction: column;
+  }
+
+  .project__solutions svg {
+    transform: rotate(90deg);
+    margin: 0;
+  }
 }

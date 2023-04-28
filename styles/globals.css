@@ -8,6 +8,11 @@
   src: url("../asset/fonts/NeueHaasDisplayBold.ttf");
 }
 
+@font-face {
+  font-family: BornaMedium;
+  src: url("../asset/fonts/borna-medium-webfont.woff2");
+}
+
 body {
   background-color: #e7520c;
   color: #fff;
@@ -100,43 +105,6 @@ section {
   margin-bottom: 85px;
 }
 
-article {
-  margin-bottom: 20px;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr) 8fr;
-  grid-column-gap: 20px;
-  align-items: center;
-}
-
-@media (min-width: 1800px) {
-  article {
-    grid-template-columns: repeat(2, 1fr) 15fr;
-  }
-}
-
-article span {
-  text-transform: uppercase;
-  font-weight: 700;
-  font-size: 20px;
-}
-
-article p {
-  line-height: 1.7;
-}
-
-.projects div {
-  position: relative;
-}
-
-.projects span {
-  position: absolute;
-  top: 10%;
-}
-
-.projects h3 {
-  margin-left: 10vw;
-}
-
 .hover-underline-animation {
   display: inline-block;
   position: relative;
@@ -164,53 +132,56 @@ article p {
   transform: scaleX(1);
 }
 
-.skills span {
-  overflow: hidden;
-  font-style: italic;
-  font-size: 18px;
-}
-
-.skills span:after {
-  content: "";
-  display: inline-block;
-  height: 0.5em;
-  vertical-align: bottom;
-  width: 100%;
-  margin-right: -100%;
-  margin-left: 10px;
-  border-top: 1px solid white;
-}
-
-.bar_bg {
-  width: 100%;
-  height: 15px;
-  background-color: #e7510c;
-  border-radius: 10px;
-  border: 1px solid white;
-}
-
-.bar_progress {
-  height: 100%;
-  background-color: white;
-  border-radius: inherit;
-}
-
-.parent {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-column-gap: 0px;
-  grid-row-gap: 15px;
-  align-items: center;
-  font-style: italic;
-  margin-bottom: 30px;
-}
-
-.solutions div {
-  width: 100px;
-  height: 100px;
-  margin-right: 25px;
-}
-
 footer {
   padding: 50px 0;
+}
+
+@media (min-width: 768px) and (max-width: 1100px) {
+  body {
+    padding: 15px 40px;
+  }
+
+  main {
+    padding: 0 0 0 9vw;
+  }
+
+  h2 {
+    font-size: 88px;
+  }
+}
+
+@media (max-width: 767px) {
+  body {
+    padding: 10px 20px;
+  }
+
+  main {
+    padding: 0px;
+  }
+
+  h1 {
+    font-size: 30px;
+  }
+
+  h2 {
+    font-size: 48px;
+  }
+
+  h3 {
+    font-size: 48px;
+  }
+
+  h4 {
+    font-size: 32px;
+  }
+
+  .page_title::before {
+    margin: 0 5px;
+    content: "\a |";
+    white-space: pre;
+  }
+
+  section {
+    margin-bottom: 60px;
+  }
 }

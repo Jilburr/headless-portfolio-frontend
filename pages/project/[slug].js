@@ -24,7 +24,7 @@ const Project = ({ project, socials }) => {
           {project.attributes.WebsiteLink ? (<a target="blank_" href={project.attributes.WebsiteLink}><ArrowSquareOut size={32} weight="light" /></a>) : null}
           {project.attributes.RepositoryLink ? (<a target="blank_" href={project.attributes.RepositoryLink}><GithubLogo size={32} weight="light" /></a>) : null}
         </div>
-        <div className="image-container">
+        <div className="project__image-container">
           <Image
             layout="responsive"
             width={80}
@@ -32,15 +32,16 @@ const Project = ({ project, socials }) => {
             objectFit="cover"
             objectPosition={'top'}
             src={getStrapiMedia(project.attributes.image)}
-            alt={project.attributes.alternativeText || "picture"}
+            alt={project.attributes.image.data.attributes.alternativeText || "picture"}
           />
         </div>
         <ReactMarkdown className="project__content">
-          {project.attributes.description}
+          {project.attributes.content}
         </ReactMarkdown>
         <Solutions solutions={project.attributes.solutions.data} />
       </section>
     </Layout>
+
   );
 };
 
