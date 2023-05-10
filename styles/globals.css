@@ -1,187 +1,117 @@
-@font-face {
-  font-family: Neuehaasdisplayroman;
-  src: url("../asset/fonts/NeueHaasDisplayRoman.ttf");
-}
-
-@font-face {
-  font-family: NeueHaasDisplayBold;
-  src: url("../asset/fonts/NeueHaasDisplayBold.ttf");
-}
-
-@font-face {
-  font-family: BornaMedium;
-  src: url("../asset/fonts/borna-medium-webfont.woff2");
-}
-
 body {
-  background-color: #e7520c;
-  color: #fff;
-  padding: 15px 45px;
-}
-
-h1,
-h3,
-h4 {
-  font-family: Neuehaasdisplayroman;
-}
-
-h1 {
-  font-size: 32px;
-}
-
-h2 {
-  font-family: NeueHaasDisplayBold;
-  font-size: 104px;
-}
-
-h3 {
-  font-size: 80px;
-  margin: 0 0 25px 0;
-}
-
-h4 {
-  font-size: 48px;
-  margin: 0 0 25px 0;
-}
-
-p,
-a,
-span {
-  font-family: minion-pro-display, serif;
-  font-weight: 400;
-  font-style: normal;
-}
-
-p {
-  font-size: 24px;
-  margin: 0;
-}
-
-a {
-  font-size: 20px;
-  color: white;
-  text-decoration: none;
+    background-color: var(--color-secondary);
+    color: var(--color-primary);
+    padding: 15px 45px;
 }
 
 nav a {
-  margin-left: 15px;
+    margin-left: 15px;
 }
 
-main {
-  max-width: 1360px;
-  padding: 0 20px 0 20vw;
+main,
+footer {
+    max-width: var(--container-size);
+    padding: 0 20px 0 20vw;
 }
 
 header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    align-items: baseline;
+    display: flex;
 }
 
 header h1 a {
-  font-family: inherit;
-  font-size: inherit;
+    font-family: inherit;
+    font-size: inherit;
 }
 
-.page_title {
-  font-size: 21px;
-  font-family: "Neuehaasdisplayroman";
+header hr {
+    background-color: var(--color-primary);
+    border: none;
+    margin: 0 20px;
+    height: 21px;
+    width: 2px;
 }
 
-.page_title::before {
-  content: "|";
-  margin: 0 20px;
-}
-
-.hero span {
-  font-family: NeueHaasDisplayBold;
+header .page-title {
+    font-size: 21px;
 }
 
 hr {
-  width: 100%;
+    background-color: var(--color-primary);
+    border: none;
+    height: 1px;
+    width: 100%;
 }
 
 section {
-  margin-bottom: 85px;
+    margin-bottom: 85px;
 }
 
 .hover-underline-animation {
-  display: inline-block;
-  position: relative;
+    display: inline-block;
+    position: relative;
 }
 
 .hover-underline-animation:hover {
-  font-style: italic;
-  cursor: pointer;
+    font-style: italic;
+    cursor: pointer;
 }
 
 .hover-underline-animation:after {
-  content: "";
-  position: absolute;
-  width: 100%;
-  transform: scaleX(0);
-  height: 7px;
-  bottom: 0;
-  left: 0;
-  background-color: #fff;
-  transform-origin: bottom right;
-  transition: transform 0.25s ease-out;
+    content: "";
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 7px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--color-primary);
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
 }
 
 .hover-underline-animation:hover:after {
-  transform: scaleX(1);
-}
-
-footer {
-  padding: 50px 0;
+    transform: scaleX(1);
 }
 
 @media (min-width: 768px) and (max-width: 1100px) {
-  body {
-    padding: 15px 40px;
-  }
 
-  main {
-    padding: 0 0 0 9vw;
-  }
+    body {
+        padding: 15px 40px;
+    }
 
-  h2 {
-    font-size: 88px;
-  }
+    main,
+    footer {
+        padding: 0 0 0 9vw;
+    }
 }
 
 @media (max-width: 767px) {
-  body {
-    padding: 10px 20px;
-  }
 
-  main {
-    padding: 0px;
-  }
+    body {
+        padding: 10px 20px;
+    }
 
-  h1 {
-    font-size: 30px;
-  }
+    main,
+    footer {
+        padding: 0px;
+    }
 
-  h2 {
-    font-size: 48px;
-  }
+    section {
+        margin-bottom: 60px;
+    }
 
-  h3 {
-    font-size: 48px;
-  }
+    header hr {
+        display: none;
+    }
 
-  h4 {
-    font-size: 32px;
-  }
-
-  .page_title::before {
-    margin: 0 5px;
-    content: "\a |";
-    white-space: pre;
-  }
-
-  section {
-    margin-bottom: 60px;
-  }
+    header .page-title {
+        display: none;
+    }
 }

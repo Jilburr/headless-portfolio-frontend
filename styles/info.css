@@ -1,15 +1,20 @@
 article {
-    margin-bottom: 20px;
+    margin-bottom: 80px;
     display: grid;
     grid-template-columns: repeat(2, 1fr) 8fr;
     grid-column-gap: 20px;
-    align-items: center;
+    align-items: start;
+}
+
+article hr {
+    margin-top: 14px;
 }
 
 article span {
-    text-transform: uppercase;
     font-weight: 700;
     font-size: 20px;
+    line-height: 1.7;
+    text-transform: uppercase;
 }
 
 article p {

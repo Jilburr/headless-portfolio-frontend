@@ -1,10 +1,12 @@
-import Footer from "./Footer";
 import Header from "./Header";
+import Footer from "./Footer";
 
-const Layout = ({ children, socials, seo, pageTitle }) => (
+const Layout = ({ children, socials, pageTitle }) => (
   <>
-    <Header socials={socials} pageTitle={pageTitle} />
+    <Header pageTitle={pageTitle} />
     <main>{children}</main>
+    <Footer socials={socials} />
+
   </>
 );
 

@@ -6,8 +6,8 @@ const Experiences = ({ experiences }) => {
       {experiences.map((experiences) => {
         return (
           <article key={experiences.id}>
-            <hr />
             <span>{experiences.attributes.date}</span>
+            <hr />
             <ReactMarkdown>{experiences.attributes.content}</ReactMarkdown>
           </article>
         );

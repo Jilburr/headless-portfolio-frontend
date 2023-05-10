@@ -1,16 +1,14 @@
 import Link from "next/link";
-import Nav from "./Nav";
 
-const Header = ({ socials, pageTitle }) => {
+const Header = ({ pageTitle }) => {
   return (
     <header>
       <h1>
         <Link href={"/"}>
-          <a>Jilbert</a>
+          Jilbert
         </Link>
-        {pageTitle ? <span className="page_title">{pageTitle}</span> : ""}
+        {pageTitle ? <><hr /><span className="page-title">{pageTitle}</span></> : ""}
       </h1>
-      <Nav socials={socials} />
     </header>
   );
 };

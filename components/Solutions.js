@@ -2,6 +2,9 @@ import Image from "next/image";
 import { getStrapiMedia } from "../lib/media";
 
 const Solutions = ({ solutions }) => {
+
+  const css = { objectFit: 'contain' }
+
   return (
     <div className="project__solutions">
       {solutions.map((solution, i, solutions) => {
@@ -10,10 +13,10 @@ const Solutions = ({ solutions }) => {
             <>
               <div key={solution.id}>
                 <Image
-                  layout="responsive"
+                  responsive
                   width={100}
                   height={100}
-                  objectFit="contain"
+                  style={css}
                   src={getStrapiMedia(solution.attributes.image)}
                   alt={solution.attributes.alternativeText || ""}
                 />
@@ -34,10 +37,10 @@ const Solutions = ({ solutions }) => {
           return (
             <div key={solution.id}>
               <Image
-                layout="responsive"
+                responsive
                 width={100}
                 height={100}
-                objectFit="contain"
+                style={css}
                 src={getStrapiMedia(solution.attributes.image)}
                 alt={solution.attributes.alternativeText || ""}
               />

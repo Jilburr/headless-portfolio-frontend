@@ -15,6 +15,9 @@ const Project = ({ project, socials }) => {
     project: true,
   };
 
+  const css = { objectFit: "cover", objectPosition: 'top', width: '100%', height: '100%' }
+
+
   return (
     <Layout socials={socials} pageTitle={project.attributes.title}>
       <Seo seo={seo} />
@@ -26,11 +29,11 @@ const Project = ({ project, socials }) => {
         </div>
         <div className="project__image-container">
           <Image
-            layout="responsive"
-            width={80}
-            height={40}
-            objectFit="cover"
-            objectPosition={'top'}
+            responsive
+            width='1440'
+            height='650'
+            sizes="100vw"
+            style={css}
             src={getStrapiMedia(project.attributes.image)}
             alt={project.attributes.image.data.attributes.alternativeText || "picture"}
           />

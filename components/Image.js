@@ -4,14 +4,15 @@ import NextImage from "next/image";
 const Image = ({ image }) => {
   if (!image) return;
 
-  const { alternativeText, width, height } = image.data.attributes;
+  const { alternativeText, width, height } = image.data.attributes
+  const css = { objectFit: 'contain' }
 
   return (
     <NextImage
-      layout="responsive"
+      responsive
       width={width}
       height={height}
-      objectFit="contain"
+      style={css}
       src={getStrapiMedia(image)}
       alt={alternativeText || ""}
     />
