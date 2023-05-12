@@ -6,8 +6,9 @@ import { fetchAPI } from "../../lib/api";
 import Solutions from "../../components/Solutions";
 import { getStrapiMedia } from "../../lib/media";
 import { ArrowSquareOut, GithubLogo } from "phosphor-react";
+import OtherProjects from "../../components/OtherProjects";
 
-const Project = ({ project, socials }) => {
+const Project = ({ projects, project, socials }) => {
   const seo = {
     metaTitle: project.attributes.title,
     metaSummery: project.attributes.summery,
@@ -16,7 +17,6 @@ const Project = ({ project, socials }) => {
   };
 
   const css = { objectFit: "cover", objectPosition: 'top', width: '100%', height: '100%' }
-
 
   return (
     <Layout socials={socials} pageTitle={project.attributes.title}>
@@ -43,6 +43,7 @@ const Project = ({ project, socials }) => {
         </ReactMarkdown>
         <Solutions solutions={project.attributes.solutions.data} />
       </section>
+      <OtherProjects projects={projects} />
     </Layout>
 
   );
@@ -62,7 +63,23 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const [projectsRes, socialsRes] = await Promise.all([
+  const qs = require('qs');
+  const query = qs.stringify({
+    filters: {
+      slug: {
+        $ne: params.slug
+      },
+    },
+  }, {
+    encodeValuesOnly: true
+  });
+
+  const [
+    allProjects,
+    projectsRes,
+    socialsRes
+  ] = await Promise.all([
+    fetchAPI(`/projects?${query}`),
     fetchAPI("/projects", {
       filters: {
         slug: params.slug,
@@ -73,7 +90,11 @@ export async function getStaticProps({ params }) {
   ]);
 
   return {
-    props: { project: projectsRes.data[0], socials: socialsRes.data },
+    props: {
+      projects: allProjects.data,
+      project: projectsRes.data[0],
+      socials: socialsRes.data
+    },
     revalidate: 1,
   };
 }
