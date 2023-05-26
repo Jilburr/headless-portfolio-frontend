@@ -1,0 +1,9 @@
+p {
+    &.succes {
+        color: green;
+    }
+
+    &.failed {
+        color: red;
+    }
+}

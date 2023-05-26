@@ -1,0 +1,13 @@
+footer {
+    padding-top: 100px;
+    padding-bottom: 75px;
+
+
+    a {
+        font-family: $font-headings;
+        font-weight: $regular;
+        font-size: rem(44);
+        margin-right: 15px;
+        text-decoration: underline;
+    }
+}

@@ -1,0 +1,27 @@
+header {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    padding: 21px 0;
+
+    h1 {
+        align-items: baseline;
+        display: flex;
+        font-family: $font-subheading;
+    }
+
+    hr {
+        background-color: $color-primary;
+        border: none;
+        margin: 0 20px;
+        height: 21px;
+        opacity: 1;
+        width: 2px;
+    }
+
+    .project-title {
+        font-family: $font-regular;
+        font-size: rem(21);
+        font-weight: $light;
+    }
+}

@@ -1,0 +1,33 @@
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1256px
+);
+
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px,
+  xxl: 1256px
+);
+
+$spacers: (
+  0: 0,
+  1: 8px,
+  2: 16px,
+  3: 24px,
+  4: 32px,
+  5: 40px,
+  6: 48px,
+  7: 56px,
+  8: 64px,
+  9: 72px,
+  10: 80px
+);
+
+$enable-negative-margins: true;
+$grid-columns: 12;
+$grid-gutter-width: 0;

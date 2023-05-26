@@ -1,0 +1,45 @@
+/* Font Weights */
+$light: 300;
+$regular: 400;
+$medium: 500;
+$semi-bold: 600;
+$bold: 700;
+
+/* Font Variables */
+$font-body: 'Comme', sans-serif;
+$font-regular: 'BornaRegular', sans-serif;
+$font-subheading: 'BornaMedium', sans-serif;
+$font-headings: 'BornaBold', sans-serif;
+
+
+@font-face {
+    font-family: 'BornaBold';
+    src: url('/assets/fonts/borna-bold-webfont.woff2') format('woff2');
+    font-display: swap;
+    font-style: normal;
+    font-weight: $bold;
+}
+
+@font-face {
+    font-family: 'BornaMedium';
+    src: url('/assets/fonts/borna-medium-webfont.woff2') format('woff2');
+    font-display: swap;
+    font-style: normal;
+    font-weight: $medium;
+}
+
+@font-face {
+    font-family: 'BornaRegular';
+    src: url('/assets/fonts/borna-regular-webfont.woff2') format('woff2');
+    font-display: swap;
+    font-style: normal;
+    font-weight: $regular;
+}
+
+@font-face {
+    font-family: 'Comme', sans-serif;
+    src: url("/asset/fonts/Comme-VariableFont_wght.ttf") format('ttf');
+    font-display: swap;
+    font-style: normal;
+    font-weight: $regular;
+}

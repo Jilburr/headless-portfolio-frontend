@@ -1,0 +1,51 @@
+body {
+    background-color: $color-secondary;
+    color: $color-primary;
+    margin: 8px;
+    padding: 10px 20px;
+
+    @include media-breakpoint-up(lg) {
+        padding: 15px 45px;
+
+    }
+
+    @include media-breakpoint-up(md) {
+        padding: 15px 40px;
+    }
+}
+
+img {
+    max-width: 100%;
+}
+
+.block {
+    &--margin {
+        margin-bottom: 42px;
+
+        @include media-breakpoint-up(md) {
+            margin-bottom: 86px;
+        }
+    }
+}
+
+.w-100 {
+    width: 100%;
+}
+
+.h-100 {
+    height: 100%;
+}
+
+.text {
+    &-left {
+        text-align: left;
+    }
+
+    &-center {
+        text-align: center;
+    }
+
+    &-right {
+        text-align: right;
+    }
+}

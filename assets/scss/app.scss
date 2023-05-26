@@ -1,0 +1,19 @@
+/* Bootstrap */
+@import 'utils/bootstrap-settings';
+@import '~/node_modules/bootstrap/scss/bootstrap-reboot.scss';
+@import '~/node_modules/bootstrap/scss/bootstrap-grid.scss';
+
+/* Utilities */
+@import 'utils/fonts';
+@import 'utils/colors';
+@import 'utils/functions';
+@import 'utils/typography';
+@import 'utils/base';
+
+/* Components */
+@import 'components/header';
+@import 'components/hero';
+@import 'components/experiences';
+@import 'components/projects';
+@import 'components/skills';
+@import 'components/footer';
