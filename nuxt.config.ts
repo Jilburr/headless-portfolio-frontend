@@ -15,5 +15,6 @@ export default defineNuxtConfig({
     image: {
         strapi: {
         }
-    }
+    },
+    ssr: false,
 });
