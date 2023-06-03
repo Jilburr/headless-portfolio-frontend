@@ -4,9 +4,6 @@ export default defineNuxtConfig({
         '@nuxt/content',
         '@nuxt/image-edge',
     ],
-    app: {
-        pageTransition: { name: 'page', mode: 'out-in' }
-    },
     css: ['@/assets/scss/app.scss'],
     plugins: [],
     strapi: {
