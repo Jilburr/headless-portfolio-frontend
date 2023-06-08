@@ -12,10 +12,5 @@ export default defineNuxtConfig({
     image: {
         strapi: {
         }
-    },
-    nitro: {
-        prerender: {
-            crawlLinks: true
-        }
     }
 });

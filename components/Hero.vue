@@ -17,8 +17,13 @@ import { Typed } from "@duskmoon/vue3-typed-js";
 import type { TypedOptions } from "@duskmoon/vue3-typed-js";
 
 const { findOne } = useStrapi()
-const response: any = await findOne('hero-text')
-const heroText = response.data.attributes.content
+const response: any = await useAsyncData(
+    'heroText',
+    () => findOne('hero-text', {
+        populate: '*'
+    })
+)
+const heroText = response.data.value.data.attributes.content
 const splittedHeroText = heroText.split(",")
 let inputHeroText = splittedHeroText
 

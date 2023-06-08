@@ -1,7 +1,7 @@
 <template>
     <footer>
         <div class="d-flex flex-column flex-md-row justify-content-start justify-content-md-center">
-            <template v-for="item in response.data">
+            <template v-for="item in socials">
                 <NuxtLink :href="item.attributes.url">
                     {{ item.attributes.service }}
                 </NuxtLink>
@@ -10,9 +10,14 @@
     </footer>
 </template>
 
-<script setup>
+<script setup lang="ts">
 const { find } = useStrapi()
-const response = await find('socials', {
-    populate: '*'
-})
+const response: any = await useAsyncData(
+    'social',
+    () => find('socials', {
+        populate: '*'
+    })
+)
+
+const socials = response.data.value.data
 </script>

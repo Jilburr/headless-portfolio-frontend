@@ -2,7 +2,7 @@
     <section class="projects block--margin">
         <div class="row">
             <div class="col-12">
-                <div v-for="(project, i) in projects.data" :key="i" class="projects__item">
+                <div v-for="(project, i) in projects" :key="i" class="projects__item">
                     <div class="row">
                         <span class="col-2">0{{ i + 1 }}</span>
                         <NuxtLink :href="'/project/' + project.attributes.slug" class="col-10">
@@ -17,9 +17,15 @@
     </section>
 </template>
 
-<script setup>
+<script setup lang="ts">
 const { find } = useStrapi()
-const projects = await find('projects', {
-    populate: 'title'
-})
+
+const { data: response }: any = await useAsyncData(
+    'project',
+    () => find('projects', {
+        populate: ['image', 'solutions.image']
+    })
+)
+
+const projects = response.value.data
 </script>

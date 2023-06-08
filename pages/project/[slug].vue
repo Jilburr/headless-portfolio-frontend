@@ -12,15 +12,14 @@
                     </a>
                 </div>
                 <div class="project__image-container">
-                    <NuxtImg provider="strapi" :src="project.image.data.attributes.url"
-                        :alt="project.image.data.attributes.alternativeText" />
+                    <NuxtImg provider="strapi" :src="image.url" :alt="image.alternativeText" />
                 </div>
                 <div class="project__content">
                     <MarkdownStringRenderer :markdownString="project.content" />
                 </div>
-                <Solutions :solutions="project.solutions.data" />
+                <Solutions :solutions="solutions" />
             </section>
-            <Projects />
+            <!-- <Projects /> -->
         </NuxtLayout>
     </div>
 </template>
@@ -35,14 +34,19 @@ const { findOne } = useStrapi()
 const route = useRoute()
 const projectSlug: string = route.params.slug.toString()
 
-const response: any = await findOne<Project>('projects', {
-    filters: {
-        slug: { $eq: projectSlug }
-    },
-    populate: ['image', 'solutions.image']
-})
-
-const project = response.data[0].attributes
+const { data: response }: any = await useAsyncData(
+    'project',
+    () => findOne<Project>('projects', {
+        filters: {
+            slug: { $eq: projectSlug }
+        },
+        populate: ['image', 'solutions.image']
+    })
+)
+const project = response.value.data[0].attributes
+let image = project.image.data.attributes
+let solutions = project.solutions.data
+console.log(project)
 
 definePageMeta({
     layout: false

@@ -1,5 +1,5 @@
 <template>
-    <section class="skills" v-for="skillgroup in skillgroups.data">
+    <section class="skills" v-for="skillgroup in skillgroups">
         <div class="row">
             <div class="col-12">
                 <SkillGroup :skillgroup="skillgroup" />
@@ -8,9 +8,14 @@
     </section>
 </template>
 
-<script setup>
+<script setup lang="ts">
 const { find } = useStrapi()
-const skillgroups = await find('skillgroups', {
-    populate: '*'
-})
+const response: any = await useAsyncData(
+    'skillgroup',
+    () => find('skillgroups', {
+        populate: '*'
+    })
+)
+
+const skillgroups = response.data.value.data
 </script>
