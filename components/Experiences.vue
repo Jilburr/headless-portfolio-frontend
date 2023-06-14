@@ -11,13 +11,8 @@
 </template>
 
 <script setup lang="ts">
-const { find } = useStrapi()
+const response: any = await useFetch(`https://strapi-sjne.onrender.com/api/experiences?populate=*`, {})
 
-const response: any = await useAsyncData(
-    'experience',
-    () => find('experiences', {
-        populate: '*'
-    })
-)
 const experiences = response.data.value.data
 </script>
+

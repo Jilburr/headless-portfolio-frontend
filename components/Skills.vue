@@ -9,13 +9,7 @@
 </template>
 
 <script setup lang="ts">
-const { find } = useStrapi()
-const response: any = await useAsyncData(
-    'skillgroup',
-    () => find('skillgroups', {
-        populate: '*'
-    })
-)
+const response: any = await useFetch(`https://strapi-sjne.onrender.com/api/skillgroups?populate=*`, {})
 
 const skillgroups = response.data.value.data
 </script>

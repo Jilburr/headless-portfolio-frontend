@@ -5,7 +5,7 @@
                 <div v-for="(project, i) in projects" :key="i" class="projects__item">
                     <div class="row">
                         <span class="col-2">0{{ i + 1 }}</span>
-                        <NuxtLink :href="'/project/' + project.attributes.slug" class="col-10">
+                        <NuxtLink :to="'/project/' + project.attributes.slug" class="col-10">
                             <h3 class="hover-underline-animation">
                                 {{ project.attributes.title }}
                             </h3>
@@ -18,14 +18,7 @@
 </template>
 
 <script setup lang="ts">
-const { find } = useStrapi()
+const response: any = await useFetch(`https://strapi-sjne.onrender.com/api/projects?fields[0]=title&fields[1]=slug`, {})
 
-const { data: response }: any = await useAsyncData(
-    'project',
-    () => find('projects', {
-        populate: ['image', 'solutions.image']
-    })
-)
-
-const projects = response.value.data
+const projects = response.data.value.data
 </script>

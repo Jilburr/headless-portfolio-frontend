@@ -15,13 +15,8 @@ const props = defineProps({
         type: Object
     }
 })
-const { find } = useStrapi()
-const response: any = await useAsyncData(
-    'skill',
-    () => find('skills', {
-        populate: '*'
-    })
-)
+
+const response: any = await useFetch(`https://strapi-sjne.onrender.com/api/skills?populate=*`, {})
 
 const skills = response.data.value.data
 </script>

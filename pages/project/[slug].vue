@@ -19,34 +19,21 @@
                 </div>
                 <Solutions :solutions="solutions" />
             </section>
-            <!-- <Projects /> -->
+            <Projects />
         </NuxtLayout>
     </div>
 </template>
 
-<script setup lang="ts">
-// @ts-expect-error avoid lint error
-import type { Project } from '~/types'
+<script setup>
 import { PhArrowSquareOut, PhGithubLogo } from "@phosphor-icons/vue";
+const route = ref(useRoute())
+const projectSlug = route.value.params.slug.toString()
 
-const { findOne } = useStrapi()
+const { data: response, pending, error, refresh } = await useFetch(`https://strapi-sjne.onrender.com/api/projects?filters[slug][$eq]=${projectSlug}&populate[0]=image&populate[1]=solutions.image`, {})
 
-const route = useRoute()
-const projectSlug: string = route.params.slug.toString()
-
-const { data: response }: any = await useAsyncData(
-    'project',
-    () => findOne<Project>('projects', {
-        filters: {
-            slug: { $eq: projectSlug }
-        },
-        populate: ['image', 'solutions.image']
-    })
-)
-const project = response.value.data[0].attributes
+let project = response.value.data[0].attributes
 let image = project.image.data.attributes
 let solutions = project.solutions.data
-console.log(project)
 
 definePageMeta({
     layout: false

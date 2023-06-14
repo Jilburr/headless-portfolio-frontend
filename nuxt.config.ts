@@ -6,11 +6,8 @@ export default defineNuxtConfig({
     ],
     css: ['@/assets/scss/app.scss'],
     plugins: [],
-    strapi: {
-        url: process.env.STRAPI_URL || 'http://localhost:1337',
-    },
     image: {
         strapi: {
         }
-    }
+    },
 });
