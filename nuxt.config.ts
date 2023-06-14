@@ -1,6 +1,5 @@
 export default defineNuxtConfig({
     modules: [
-        '@nuxtjs/strapi',
         '@nuxt/content',
         '@nuxt/image-edge',
     ],
