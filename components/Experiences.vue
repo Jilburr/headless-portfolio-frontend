@@ -16,8 +16,6 @@
 </template>
 
 <script setup lang="ts">
-const response: any = await useFetch(`https://strapi-sjne.onrender.com/api/experiences?populate=*`, {})
-
+const response: any = await useFetch(`https://strapi-sjne.onrender.com/api/experiences?populate=*&sort=id:asc`, {})
 const experiences = response.data.value.data
 </script>
-
