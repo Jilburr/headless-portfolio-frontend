@@ -6,5 +6,3 @@
         <Skills />
     </div>
 </template>
-
-  
