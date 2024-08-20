@@ -1,0 +1,12 @@
+.hero {
+    &__text {
+        position: absolute;
+    }
+
+    &__spacer {
+        color: $color-secondary;
+        pointer-events: none;
+        position: relative;
+        z-index: -1;
+    }
+}

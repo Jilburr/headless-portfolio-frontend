@@ -1,18 +1,20 @@
 <template>
     <section class="hero block--margin">
         <div class="row">
-            <div class="col-12">
-                <h2>
+            <div class="col-12 position-relative">
+                <h2 class="hero__text">
                     <Typed :options="options">
                         <span class="typing"></span>
                     </Typed>
                 </h2>
+                <h2 class="hero__spacer" aria-hidden="true">{{ inputHeroText[1] }}</h2>
             </div>
         </div>
     </section>
 </template>
 
-<script setup lang="ts">
+<script setup lang="ts"
+>
 import { Typed } from "@duskmoon/vue3-typed-js";
 import type { TypedOptions } from "@duskmoon/vue3-typed-js";
 

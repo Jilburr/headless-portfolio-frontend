@@ -36,6 +36,12 @@ img {
     height: 100%;
 }
 
+.position {
+    &-relative {
+        position: relative;
+    }
+}
+
 .text {
     &-left {
         text-align: left;
